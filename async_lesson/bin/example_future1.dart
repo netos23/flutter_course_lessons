@@ -18,7 +18,7 @@ Future<void> methodB() async {
 Future<void> methodC(String from) async {
   print('C start from $from');
 
-  Future(() {
+  await Future(() {
     print('C running Future from $from');
   }).then((_){
     print('C end of Future from $from');
