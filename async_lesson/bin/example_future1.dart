@@ -1,11 +1,11 @@
-void main() async {
+Future<void> main() async {
   methodA();
   await methodB();
   await methodC('main');
   methodD();
 }
 
-void methodA(){
+void methodA() {
   print('A');
 }
 
@@ -18,17 +18,20 @@ Future<void> methodB() async {
 Future<void> methodC(String from) async {
   print('C start from $from');
 
-  await Future(() {
+  Future(() {
     print('C running Future from $from');
-  }).then((_){
+  }).then((_) {
     print('C end of Future from $from');
   });
 
-  Future.microtask(() => print('microtask from $from'));
+  Future.microtask(() async{
+    await Future.delayed(Duration(hours: ));
+    print('microtask from $from');
+  });
 
   print('C end from $from');
 }
 
-void methodD(){
+void methodD() {
   print('D');
 }

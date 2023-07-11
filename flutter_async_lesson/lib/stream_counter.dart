@@ -1,20 +1,11 @@
 import 'dart:async';
-import 'dart:convert';
 
-import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_async_lesson/service/service.dart';
-import 'package:http/http.dart' as http;
 import 'package:flutter_async_lesson/stream_updater.dart';
 
-import 'model/charecter.dart';
-
-Future<void> main() async {
-  final dio = Dio();
-  dio.options.baseUrl = 'https://rickandmortyapi.com';
-
-  final api = RestClient(dio);
-  final ch =  await api.getCharecter(2);
+void main() {
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
